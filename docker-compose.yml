@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  cricket-commentator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cricket-ai-commentator
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_ENV=production
+      - DEVICE=cpu
+      - HOST=0.0.0.0
+      - PORT=8000
+      - TARGET_FPS=30
+      - YOLO_MODEL=yolov8n.pt
+      - YOLO_POSE_MODEL=yolov8n-pose.pt
+      - ENABLE_AUDIO=True
+      - TTS_VOICE=en-GB-RyanNeural
+      - COMMENTARY_STYLE=PROFESSIONAL
+      # Optional external LLM configuration (leave empty for deterministic fallback)
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - OPENAI_BASE_URL=${OPENAI_BASE_URL:-https://api.openai.com/v1}
+      - LLM_MODEL=${LLM_MODEL:-gpt-4o-mini}
+    volumes:
+      - ./config:/app/config
+      - ./sample_videos/uploads:/app/sample_videos/uploads
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
