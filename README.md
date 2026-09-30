@@ -10,7 +10,7 @@
 [![Google Gemini](https://img.shields.io/badge/Google_Gemini-2.0_Flash-4285F4.svg?logo=google&logoColor=white)](https://aistudio.google.com/)
 [![YOLOv8](https://img.shields.io/badge/Ultralytics-YOLOv8-00FFFF.svg)](https://docs.ultralytics.com/)
 [![Tests](https://img.shields.io/badge/Tests-37%2F37%20Passing-brightgreen.svg)]()
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) 
 
 ---
 
