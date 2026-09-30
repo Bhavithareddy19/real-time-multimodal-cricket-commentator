@@ -147,7 +147,7 @@ To ensure technical transparency, the table below delineates which components re
 ### 6. Streaming TTS & Audio Preemption
 * **Broadcaster Voice Profile**: Uses `en-GB-RyanNeural` with `rate="+12%"` for an energetic sports delivery cadence.
 * **AudioPriorityManager**: Enforces strict event preemption:
-  $$\text{WICKET (100)} > \text{SIX (80)} > \text{FOUR (60)} > \text{SHOT\_PLAYED (40)} > \text{DOT\_BALL (20)}$$
+  $$\text{WICKET (100)} > \text{SIX (80)} > \text{FOUR (60)} > \text{SHOT\_PLAYED (40)} > \text{DOT\_BALL (20)}$$ 
   Higher-priority events immediately cancel lower-priority audio synthesis in flight and dispatch `clear_queue` commands to flush client buffers.
 * **Web Audio API Client**: Decodes base64 audio chunks directly in the browser with seamless sequential buffering and zero-latency mute toggling.
 
